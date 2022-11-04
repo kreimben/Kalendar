@@ -1,0 +1,70 @@
+import dayjs from "dayjs";
+import React, {useContext, useEffect, useState} from "react";
+import GlobalContext from "../context/GlobalContext";
+import {DayEvent} from "../utils/type";
+
+export default function Day({day, rowIdx}) {
+    const {monthIndex} = useContext(GlobalContext);
+    const [dayEvents, setDayEvents] = useState<DayEvent[]>([]);
+    const {
+        setDaySelected,
+        setShowEventModal,
+        filteredEvents,
+        setSelectedEvent,
+    } = useContext(GlobalContext);
+
+    useEffect(() => {
+        const events = filteredEvents.filter((evt: DayEvent) =>
+            dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+        );
+        setDayEvents(events);
+    }, [filteredEvents, day]);
+
+    function getCurrentDayClass() {
+        if (day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")) {
+            return "bg-blue-600 text-white rounded-full w-7";
+        } else if (day.month() !== monthIndex) {
+            return "text-gray-400";
+        } else {
+            return "";
+        }
+    }
+
+    return (
+        <div className="border border-gray-200 flex flex-col">
+            <header className="flex flex-col items-center">
+                {rowIdx === 0 && (
+                    <p className="text-sm mt-1">
+                        {day.format("ddd").toUpperCase()}
+                    </p>
+                )}
+                <p
+                    className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}
+                >
+                    {day.format("D")}
+                </p>
+            </header>
+            <div
+                className="flex-1 cursor-pointer"
+                onClick={() => {
+                    setDaySelected(day);
+                    setShowEventModal(true);
+                }}
+            >
+                {dayEvents && dayEvents.map((evt: DayEvent, idx) => {
+                    return (
+                        <div
+                            key={idx}
+                            onClick={() => {
+                                setSelectedEvent(evt)
+                            }}
+                            className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
+                        >
+                            {evt.title}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+    );
+}
