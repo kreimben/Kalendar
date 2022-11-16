@@ -1,3 +1,7 @@
+/**
+ * 왼쪽 사이드바에 들어가는 작은 달력 컴포넌트 입니다.
+ */
+
 import dayjs from "dayjs";
 import React, {useContext, useEffect, useState} from "react";
 import GlobalContext from "../context/GlobalContext";

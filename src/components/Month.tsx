@@ -1,3 +1,8 @@
+/**
+ * 달을 나타내는 컴포넌트 입니다.
+ * 더 자세한 정보는 `Day`컴포넌트에 있습니다.
+ */
+
 import React from "react";
 import Day from "./Day";
 

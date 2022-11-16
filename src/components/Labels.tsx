@@ -1,3 +1,7 @@
+/** 
+ * 라벨과 관련된 컴포넌트 입니다.
+ */
+
 import React, {useContext} from "react";
 import GlobalContext from "../context/GlobalContext";
 

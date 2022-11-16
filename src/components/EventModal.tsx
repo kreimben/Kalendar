@@ -1,3 +1,7 @@
+/**
+ * 특정 이벤트를 눌렀거나 빈 날짜를 눌렀거나, 어쨌든 이벤트를 조작하기 위해 필요한 컴포넌트 입니다.
+ */
+
 import React, {useContext, useState} from "react";
 import GlobalContext from "../context/GlobalContext";
 import {DayEvent} from "../utils/type";

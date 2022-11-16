@@ -1,3 +1,7 @@
+/**
+ * 개별 날짜를 담당하는 컴포넌트 입니다.
+ */
+
 import dayjs from "dayjs";
 import React, {useContext, useEffect, useState} from "react";
 import GlobalContext from "../context/GlobalContext";

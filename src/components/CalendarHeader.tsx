@@ -1,3 +1,7 @@
+/**
+ * 캘린더의 헤더 부분들 담당하는 컴포넌트들입니다.
+ */
+
 import dayjs from "dayjs";
 import React, {useContext} from "react";
 import logo from "../assets/logo.png";
@@ -7,14 +11,17 @@ export default function CalendarHeader() {
     const {monthIndex, setMonthIndex} = useContext(GlobalContext);
 
     function handlePrevMonth() {
+        // 이전 달로 변경합니다.
         setMonthIndex(monthIndex - 1);
     }
 
     function handleNextMonth() {
+        // 다음 달로 변경합니다.
         setMonthIndex(monthIndex + 1);
     }
 
     function handleReset() {
+        // 이번달로 다시 초기화 합니다.
         setMonthIndex(
             monthIndex === dayjs().month()
                 ? monthIndex + Math.random()
