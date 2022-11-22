@@ -1,5 +1,5 @@
 /**
- * 이 함수가 가장 중요한 이유는, Context를 이용해 전체 프로그램의 중추적인 기능을 하는 함수들을 컴포넌트 곳곳에 배치 할 수 있게 도와주기 떄문입니다.
+ * 이 함수가 가장 중요한 이유는, Context를 이용해 전체 프로그램의 중추적인 기능을 하는 함수들을 컴포넌트 곳곳에 배치 할 수 있게 도와주기 때문입니다.
  * 이 외의 컴포넌트들은 그냥 View역할만 합니다.
  */
 
@@ -119,7 +119,7 @@ export default function ContextWrapper(props) {
     }
 
     // 위에서 정리한 함수들을 `GlobalContext`에 담아 보내줍니다.
-    // 이어서 `GlobalContext`클래스로 가십시오.
+    // 이어서 `GlobalContext`로 가십시오.
     return (
         <GlobalContext.Provider
             value={{
