@@ -119,7 +119,7 @@ export default function ContextWrapper(props) {
     }
 
     // 위에서 정리한 함수들을 `GlobalContext`에 담아 보내줍니다.
-    // 이어서 `GlobalContext`클래스로 가십시오.
+    // 이어서 `GlobalContext`로 가십시오.
     return (
         <GlobalContext.Provider
             value={{
